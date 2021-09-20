@@ -51,4 +51,10 @@ class BeerControllerTest {
         .content(beerDTOJson))
         .andExpect(status().isNoContent());
     }
+
+    @Test
+    void deleteBeer() throws Exception {
+        mockMvc.perform(delete("/api/v1/beer/delete/" + UUID.randomUUID().toString()))
+                .andExpect(status().isNoContent());
+    }
 }
